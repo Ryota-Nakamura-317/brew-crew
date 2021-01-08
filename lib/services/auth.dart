@@ -1,6 +1,7 @@
 import 'package:brew_crew/model/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+//Authserviceはauthに関連したサービスを司る、ここを全てのページで最初に定義し、中身のクラスを持ってくる
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -32,5 +33,12 @@ class AuthService {
   //register with email & password
 
   //sign out
-
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }
