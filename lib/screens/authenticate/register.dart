@@ -1,15 +1,16 @@
 import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
+  //show toggleView
   final Function toggleView;
-  SignIn({this.toggleView});
+  Register({this.toggleView});
 
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   //データ呼び出し専用のauth.dartの呼び出し
   //これでAuthServiceがこのクラスでも使用可能となる
   final AuthService _auth = AuthService();
@@ -26,15 +27,16 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.brown[400],
         //elevation； 高さ、影をつける
         elevation: 0.0,
-        title: Text('Sign in to Brew Crew'),
-        //appbar内のRegisterボタン
+        title: Text('Sign up to Brew Crew'),
+        //appbar内のSignInボタン
         actions: [
           FlatButton.icon(
             onPressed: () {
+              //toggleViewの値を参照して判断
               widget.toggleView();
             },
             icon: Icon(Icons.person),
-            label: Text('Register'),
+            label: Text('Sign In'),
           ),
         ],
       ),
@@ -60,7 +62,7 @@ class _SignInState extends State<SignIn> {
             RaisedButton(
               color: Colors.pink[400],
               child: Text(
-                'Sign in',
+                'Register',
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () async {
