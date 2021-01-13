@@ -1,4 +1,5 @@
 import 'package:brew_crew/services/auth.dart';
+import 'package:brew_crew/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -49,6 +50,8 @@ class _SignInState extends State<SignIn> {
             children: [
               SizedBox(height: 20.0),
               TextFormField(
+                //constants.dartより持ってくる
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 //①入力フォーム内の表示文字とその判断
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
@@ -57,6 +60,8 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                //constants.dartより持ってくる
+                decoration: textInputDecoration.copyWith(hintText: 'password'),
                 obscureText: true,
                 //②入力フォーム内の表示文字とその判断,六文字以上のパスワードの作成
                 validator: (val) =>

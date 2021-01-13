@@ -1,4 +1,5 @@
 import 'package:brew_crew/services/auth.dart';
+import 'package:brew_crew/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -51,6 +52,10 @@ class _RegisterState extends State<Register> {
             children: [
               SizedBox(height: 20.0),
               TextFormField(
+                //decorationプロパティ
+                //textInputDecorationを別で定義して呼び出す形にすれば、他でコピペが簡単にできる
+                //.copyWith(hintText: 'Email')をつけることでtextInputDecorationに対してhintTextをそれぞれに定義できる
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 //①入力フォーム内の表示文字とその判断
                 validator: (val) => val.isEmpty ? 'Enter an email' : null,
                 onChanged: (val) {
@@ -59,6 +64,8 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
+                //constants.dartより持ってくる
+                decoration: textInputDecoration.copyWith(hintText: 'password'),
                 obscureText: true,
                 //②入力フォーム内の表示文字とその判断,六文字以上のパスワードの作成
                 validator: (val) =>
