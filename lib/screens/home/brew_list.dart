@@ -11,6 +11,7 @@ class BrewList extends StatefulWidget {
 class _BrewListState extends State<BrewList> {
   @override
   Widget build(BuildContext context) {
+    //streambuilderとは別の方法
     //database.dart内のist<Brew>をリッスンしてbrewsを定義
     final brews = Provider.of<List<Brew>>(context);
 
