@@ -47,6 +47,20 @@ class _SettingFormState extends State<SettingForm> {
             onChanged: (val) => setState(() => _currentSugars = val),
           ),
           //slider
+          Slider(
+            //このスライダー自体はdouble型なので.toDoubleが必要。
+            value: (_currentStrength ?? 100).toDouble(),
+            //数値に合わせて色の変更の設定
+            activeColor: Colors.brown[_currentStrength ?? 100],
+            inactiveColor: Colors.brown[_currentStrength ?? 100],
+            min: 100,
+            max: 900,
+            divisions: 8,
+            onChanged: (val) => setState(
+              //roundをつけることでdoubleの指定が不必要となる。
+              () => _currentStrength = val.round(),
+            ),
+          ),
           //updateボタンの作成
           RaisedButton(
             color: Colors.pink[400],
