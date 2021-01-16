@@ -5,3 +5,13 @@ class BrewCrewUser {
 
   BrewCrewUser({this.uid});
 }
+
+class UserData {
+  //以下の情報全てを連携させる
+  final String uid;
+  final String name;
+  final String sugars;
+  final int strength;
+
+  UserData({this.uid, this.name, this.sugars, this.strength});
+}
