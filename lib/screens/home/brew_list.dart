@@ -13,7 +13,7 @@ class _BrewListState extends State<BrewList> {
   Widget build(BuildContext context) {
     //streambuilderとは別の方法
     //database.dart内のist<Brew>をリッスンしてbrewsを定義
-    final brews = Provider.of<List<Brew>>(context);
+    final brews = Provider.of<List<Brew>>(context) ?? [];
 
     return ListView.builder(
       itemCount: brews.length,
